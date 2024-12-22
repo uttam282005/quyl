@@ -7,7 +7,7 @@ export async function GET() {
     return NextResponse.json(students);
   } catch (error) {
     console.error("Api error: ", error)
-    return NextResponse.json({ message: 'Failed to fetch students' });
+    return NextResponse.json({ message: 'Failed to fetch students' }, { status: 500 });
   }
 }
 
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(newStudent);
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ message: 'Failed to add student' });
+    return NextResponse.json({ message: 'Failed to add student' }, { status: 500 });
   }
 }
 
@@ -37,7 +37,7 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json(deleteStudent);
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ message: 'Failed to delete student' });
+    return NextResponse.json({ message: 'Failed to delete student' }, { status: 500 });
   }
 }
 
@@ -56,6 +56,6 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json(updatedStudent);
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ message: 'Failed to update student' });
+    return NextResponse.json({ message: 'Failed to update student' }, { status: 500 });
   }
 }
