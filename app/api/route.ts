@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
     })
     return NextResponse.json(newStudent);
   } catch (error) {
+    console.error(error)
     return NextResponse.json({ message: 'Failed to add student' });
   }
 }
