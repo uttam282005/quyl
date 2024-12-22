@@ -38,9 +38,12 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
     e.preventDefault()
     try {
       if (type === "add") {
-        const { id, ...studentData } = formData;
-        id;
-        const newStudentData = { ...studentData, dateJoined: new Date(Date.now()), lastLogin: new Date(Date.now()) }
+        const newStudentData = {
+          ...formData,
+          id: undefined,
+          dateJoined: new Date(),
+          lastLogin: new Date(),
+        };
         const newStudent = await addStudentAction(newStudentData);
         dispatch(addStudent(newStudent));
       } else {
