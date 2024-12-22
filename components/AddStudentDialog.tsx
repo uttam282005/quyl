@@ -39,6 +39,7 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
     try {
       if (type === "add") {
         const { id, ...studentData } = formData;
+        id;
         const newStudentData = { ...studentData, dateJoined: new Date(Date.now()), lastLogin: new Date(Date.now()) }
         const newStudent = await addStudentAction(newStudentData);
         dispatch(addStudent(newStudent));
@@ -48,7 +49,6 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
       }
       console.log("Submitting student:", formData)
       setOpen(false)
-      // Reset form
     } catch (error) {
       console.error("Error adding student:", error)
       setOpen(false);
