@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { studentSlice } from "@/features/studentSlice";
+import { globalStateSlice, studentSlice } from "@/features/studentSlice";
 
 export const store = configureStore({
-  reducer: studentSlice.reducer
+  reducer: {
+    students: studentSlice.reducer,
+    globalState: globalStateSlice.reducer
+  }
 });
-console.log(store.getState());
+
 // Extracts the return type of the getState funciton
 export type RootState = ReturnType<typeof store.getState>;

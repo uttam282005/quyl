@@ -1,4 +1,4 @@
-import { Bell, HelpCircle, LayoutDashboard, BookOpen, PieChart, Settings, Users } from 'lucide-react'
+import { HelpCircle, LayoutDashboard, BookOpen, PieChart, Settings, Users } from 'lucide-react'
 import Link from "next/link"
 
 interface SidebarItemProps {
@@ -20,11 +20,10 @@ function SidebarItem({ icon, label, isActive }: SidebarItemProps) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  console.log("layout")
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <aside className="w-60 border-r bg-gray-50 p-4 space-y-4">
+      <aside className="w-60 border-r p-4 space-y-4">
         <div className="mb-6">
           <h1 className="text-xl font-bold">Quyl.</h1>
         </div>

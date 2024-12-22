@@ -18,16 +18,9 @@ model Student {
   id         Int       @id @default(autoincrement())
   name       String
   cohort     String
-  courses    Course[]
+  courses    String[]
+  class      String
   dateJoined DateTime
   lastLogin  DateTime?
   status     Boolean
-}
-
-model Course {
-  id              Int       @id @default(autoincrement())
-  name            String
-  students        Student[]
-  instructor      String
-  instructorImage String
 }

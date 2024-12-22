@@ -3,18 +3,26 @@ export type Student = {
   name: string;
   cohort: string;
   dateJoined: Date;
-  lastLogin?: Date;
+  lastLogin: Date;
   status: boolean;
-  courses: number[];
+  courses: string[];
+  class: string;
 };
 
-export type Course = {
-  id: number;
-  name: string;
-  instructor: string;
-  instructorImage: string;
+export type FilterStudentListProps = {
+  globalState: Student[];
+  cohort: string;
+  class: string;
 };
 
-export type StudentPageProps = {
-  students: Student[]
-}
+export type SearchProps = {
+  globalState: Student[];
+  query: string;
+};
+
+export type AddStudentDialogProps = {
+  type: "update" | "add";
+  student?: Student;
+};
+
+
