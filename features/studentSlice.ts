@@ -35,12 +35,30 @@ export const studentSlice = createSlice({
       });
     },
     searchStudent: (state, action: PayloadAction<SearchProps>) => {
-      const query = action.payload.query;
-      return action.payload.globalState.filter((student) =>
-        (
-          // Returns true if any of the student's protperties contain the search query
-          student.class.toLowerCase().includes((query.toLowerCase())) || student.name.toLowerCase().includes(query)) || student.cohort.toLowerCase().includes(query) || student.courses.filter((course) => course.toLowerCase().includes(query.toLowerCase())).length
-      )
+      const { query, globalState } = action.payload;
+      const lowerCaseQuery = query.toLowerCase();
+
+      return globalState.filter((student) => {
+        // Check if the query matches the class
+        const matchesClass = student.class.toLowerCase().includes(lowerCaseQuery);
+
+        // Check if the query matches any part of the name
+        const matchesName = student.name
+          .toLowerCase()
+          .split(' ')
+          .some((nameSegment) => nameSegment.includes(lowerCaseQuery));
+
+        // Check if the query matches the cohort
+        const matchesCohort = student.cohort.toLowerCase().includes(lowerCaseQuery);
+
+        // Check if the query matches any of the courses
+        const matchesCourses = student.courses.some((course) =>
+          course.toLowerCase().includes(lowerCaseQuery)
+        );
+
+        // Return true if the query matches any field
+        return matchesClass || matchesName || matchesCohort || matchesCourses;
+      });
     }
   }
 });
