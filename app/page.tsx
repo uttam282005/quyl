@@ -1,3 +1,4 @@
+
 "use client"
 
 import { Layout } from "@/components/Layout"
@@ -39,25 +40,25 @@ export default function StudentsPage() {
   return (
     <Layout>
       <Header />
-      <div  className="m-4">
-        <div className="bg-white p-4">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex gap-4">
+      <div className="m-2 sm:m-4">
+        <div className="bg-white p-2 sm:p-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 space-y-4 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <Select onValueChange={(value: string) => handleFilterChange("cohort", value)} defaultValue="All">
-                <SelectTrigger className="w-[149px] h-[38px] rounded-[6px] bg-[#E9EDF1] text-[#3F526E] font-bold">
+                <SelectTrigger className="w-full sm:w-[149px] h-[38px] rounded-[6px] bg-[#E9EDF1] text-[#3F526E] font-bold">
                   <SelectValue placeholder="Select year" />
                 </SelectTrigger>
-                <SelectContent >
+                <SelectContent>
                   <SelectItem value="All">All</SelectItem>
                   <SelectItem value="AY 2024-25">AY 2024-25</SelectItem>
                   <SelectItem value="AY 2023-24">AY 2023-24</SelectItem>
                 </SelectContent>
               </Select>
               <Select defaultValue="All" onValueChange={(value) => handleFilterChange("class", value)}>
-                <SelectTrigger className="w-[117px] h-[38px] rounded-[6px] bg-[#E9EDF1] text-[#3F526E] font-bold " >
+                <SelectTrigger className="w-full sm:w-[117px] h-[38px] rounded-[6px] bg-[#E9EDF1] text-[#3F526E] font-bold">
                   <SelectValue placeholder="Select class" />
                 </SelectTrigger>
-                <SelectContent >
+                <SelectContent>
                   <SelectItem value="All">All</SelectItem>
                   <SelectItem value="CBSE 8">CBSE 8</SelectItem>
                   <SelectItem value="CBSE 9">CBSE 9</SelectItem>
@@ -69,7 +70,7 @@ export default function StudentsPage() {
           <StudentsTable students={students} />
         </div>
       </div>
-    </Layout >
+    </Layout>
   )
 }
 

@@ -74,18 +74,18 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
               <Pencil className="h-4 w-4" />
             </Button>
           ) : (
-            <Button className="bg-[#E9EDF1] text-[#3F526E] font-bold text-[16px] w-[197px] h-[36px] hover:bg-gray-50">
+            <Button className="bg-[#E9EDF1] text-[#3F526E] font-bold text-[14px] sm:text-[16px] w-full sm:w-[197px] h-[36px] hover:bg-gray-50">
               <Plus className="w-4 h-4 mr-1" />
               Add new Student
             </Button>
           )
         }
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>{type === "add" ? "Add New Student" : "Update Student Data"}</DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 max-h-[60vh] overflow-y-auto">
           <div className="grid w-full gap-1.5">
             <Label htmlFor="name">Name</Label>
             <Input
@@ -127,7 +127,7 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
           </div>
           <div className="grid w-full gap-1.5">
             <Label>Courses</Label>
-            <div className="grid gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {availableCourses.map((course) => (
                 <div key={course} className="flex items-center space-x-2">
                   <Checkbox
@@ -160,15 +160,16 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
               <Label htmlFor="status">Active</Label>
             </div>
           </div>
-          <div className="flex justify-end space-x-2">
-            <Button variant="outline" type="button" onClick={() => setOpen(false)}>
+          <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-2">
+            <Button variant="outline" type="button" onClick={() => setOpen(false)} className="w-full sm:w-auto">
               Cancel
             </Button>
-            <Button type="submit">{type === "update" ? "Update student" : "Add student"}</Button>
+            <Button type="submit" className="w-full sm:w-auto">{type === "update" ? "Update student" : "Add student"}</Button>
           </div>
         </form>
       </DialogContent>
     </Dialog>
   )
 }
+
 
