@@ -17,9 +17,9 @@ export function Header() {
   }
 
   return (
-    <div className="p-4 pb-0 bg-[#F7F9FA]">
+    <div className="bg-[#F7F9FA]">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-[65px]">
-        <div className="relative w-full md:w-[300px] rounded-[12px]">
+        <div className="relative w-full md:w-[250px] rounded-[12px]">
           <Search className="absolute left-[15px] top-1/2 transform -translate-y-1/2 h-[15px] w-[15px] text-muted-foreground" />
           <Input
             placeholder="Search your course"
