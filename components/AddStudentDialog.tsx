@@ -74,8 +74,8 @@ export function AddStudentDialog({ type, student }: AddStudentDialogProps) {
               <Pencil className="h-4 w-4" />
             </Button>
           ) : (
-            <Button>
-              <Plus className="w-4 h-4 mr-2" />
+            <Button className="bg-[#E9EDF1] text-[#3F526E] font-bold text-[16px] w-[197px] h-[36px] hover:bg-gray-50">
+              <Plus className="w-4 h-4 mr-1" />
               Add new Student
             </Button>
           )

@@ -63,3 +63,9 @@
   }
 }
 
+@layer components {
+  select {
+     @apply w-[149px] h-[38px] rounded-[6px] bg-[#E9EDF1] text-[#3F526E] font-bold;
+  }
+}
+

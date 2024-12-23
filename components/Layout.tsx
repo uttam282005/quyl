@@ -1,4 +1,5 @@
 import { HelpCircle, LayoutDashboard, BookOpen, PieChart, Settings, Users } from 'lucide-react'
+import Image from 'next/image'
 import Link from "next/link"
 
 interface SidebarItemProps {
@@ -11,7 +12,7 @@ function SidebarItem({ icon, label, isActive }: SidebarItemProps) {
   return (
     <Link
       href="#"
-      className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium ${isActive ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
+      className={`flex items-center gap-3 px-3 py-2 rounded-lg text-[16px] font-bold ${isActive ? 'bg-gray-100' : 'text-[#6F767E] hover:bg-gray-50'}`}
     >
       {icon}
       {label}
@@ -25,7 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       {/* Sidebar */}
       <aside className="w-60 border-r p-4 space-y-4">
         <div className="mb-6">
-          <h1 className="text-xl font-bold">Quyl.</h1>
+          <Image src={'/Vector.png'} alt='Logo' width={98} height={42}></Image>
         </div>
         <nav className="space-y-1">
           <SidebarItem icon={<LayoutDashboard className="w-5 h-5" />} label="Dashboard" />
@@ -38,7 +39,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto bg-[#F7F9FA]">
         {children}
       </main>
     </div>

@@ -26,27 +26,27 @@ export function StudentsTable({ students }: { students: Student[] }) {
     dispatch(removeStudent(id));
   }
   return (
-    <Table>
+    <Table className="bg-white rounded-md">
       <TableHeader>
-        <TableRow>
-          <TableHead>Student Name</TableHead>
-          <TableHead>Cohort</TableHead>
-          <TableHead>Courses</TableHead>
-          <TableHead>Date Joined</TableHead>
-          <TableHead>Last login</TableHead>
-          <TableHead>Status</TableHead>
+        <TableRow >
+          <TableHead className="font-bold text-black">Student Name</TableHead>
+          <TableHead className="font-bold text-black">Cohort</TableHead>
+          <TableHead className="font-bold text-black">Courses</TableHead>
+          <TableHead className="font-bold text-black">Date Joined</TableHead>
+          <TableHead className="font-bold text-black">Last login</TableHead>
+          <TableHead className="font-bold text-black">Status</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {students &&
           students.map((student: Student) => (
             <TableRow key={student.name}>
-              <TableCell className="font-medium font-sans">{student.name}</TableCell>
-              <TableCell>{student.cohort}</TableCell>
+              <TableCell className="font-sans">{student.name}</TableCell>
+              <TableCell className="font-sans">{student.cohort}</TableCell>
               <TableCell>
                 <div className="flex flex-wrap gap-1">
                   {student.courses.map((course, index) => (
-                    <div className="flex items-center bg-gray-50 gap-[4px] pt-[2px] pb-[2px] pl-[4px] pr-[8px]" key={index}>
+                    <div className="flex items-center bg-gray-50 gap-[4px] pt-[2px] pb-[2px] pl-[4px] pr-[8px] rounded-[6px] w-[134.97px] h-[24px]" key={index}>
                       <div className="pr-0">
                         {
                           course.includes("Maths") ?
@@ -70,7 +70,7 @@ export function StudentsTable({ students }: { students: Student[] }) {
               <TableCell>{formatDate(student.lastLogin, "lastLogin")}</TableCell>
               <TableCell>
                 <div
-                  className={`w-2 h-2 rounded-full ${student.status ? "bg-green-500" : "bg-red-500"
+                  className={`ml-3 w-[14.4px] h-[14px] rounded-full ${student.status ? "bg-[#4AEA40]" : "bg-[#EA4E40]"
                     }`}
                 />
               </TableCell>
